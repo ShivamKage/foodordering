@@ -17,14 +17,12 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       <h3 className="text-2xl mt-4">Username</h3>
       <input
         placeholder="Username"
-        value="Shivi4264"
         className="mt-2"
         onChange={(e) => setUsername(e.target.value)}
       ></input>
       <h3 className="text-2xl mt-2">Password</h3>
       <input
         placeholder="Password"
-        value="qWerty@321"
         type="password"
         className="mt-2"
         onChange={(e) => setPassword(e.target.value)}
@@ -32,6 +30,8 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
       <div className="bg-cyan-300 mt-2 hover:bg-sky-400 w-11">
         <button onClick={() => auth()}>Login</button>
       </div>
+      <h1>Username:Shivi4264</h1>
+      <h1>Password:qWerty@321</h1>
     </div>
   );
 };
