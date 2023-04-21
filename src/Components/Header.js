@@ -6,7 +6,7 @@ import UserContext from "../Utilies/UserContext";
 
 const Title = () => {
   return (
-    <a href="/">
+    <a href="/foodordering/">
       <img
         className="w-24 p-1"
         alt="Logo"
