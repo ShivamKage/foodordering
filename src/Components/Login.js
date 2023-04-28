@@ -13,23 +13,27 @@ const Login = ({ isLoggedIn, setIsLoggedIn }) => {
   return notVerified ? (
     <h1 className="text-4xl text-red-500">Incorrect Input</h1>
   ) : (
-    <div className="ml-auto mr-auto w-60 p-6 mt-28 bg-pink-50">
+    <div className="ml-auto mr-auto w-60 p-6 mt-28 shadow-lg grid">
       <h3 className="text-2xl mt-4">Username</h3>
       <input
         placeholder="Username"
-        className="mt-2"
+        className="mt-2 border border-grey-300 rounded-sm"
         onChange={(e) => setUsername(e.target.value)}
       ></input>
       <h3 className="text-2xl mt-2">Password</h3>
       <input
         placeholder="Password"
         type="password"
-        className="mt-2"
+        className="mt-2 border border-grey-300 rounded-sm"
         onChange={(e) => setPassword(e.target.value)}
       ></input>
-      <div className="bg-cyan-300 mt-2 hover:bg-sky-400 w-11">
-        <button onClick={() => auth()}>Login</button>
-      </div>
+      <button
+        className="m-2 border border-gray-500 rounded shadow hover:bg-gray-100"
+        onClick={() => auth()}
+      >
+        Login
+      </button>
+      <h1>Hint :</h1>
       <h1>Username:Shivi4264</h1>
       <h1>Password:qWerty@321</h1>
     </div>

@@ -20,11 +20,11 @@ const Header = () => {
   const isOnline = useOnline();
   const { user } = useContext(UserContext);
   return (
-    <div className="flex justify-between border-2 bg-pink-100">
+    <div className="flex justify-between border-2">
       <Title />
 
-      <div>
-        <ul className="flex m-4 p-2 bg-pink-200">
+      <div className="self-center">
+        <ul className="flex m-4 p-">
           <li className=" ml-3 hover:underline">
             <Link to="/">Home</Link>
           </li>
@@ -40,11 +40,12 @@ const Header = () => {
           <li className="ml-3 hover:underline">
             <Link to="/Cart">Cart-{cart.length}</Link>
           </li>
-        </ul>
-        <div className="flex">
-          <h1 className="bg-pink-200">Hi,{user.name}</h1>
-          {!isOnline ? <h2>,is Offline🔴</h2> : <h2>,is Onine🟢</h2>}
+          <div className="ml-4 flex">
+          <h1>Hi,{user.name} </h1>
+          {!isOnline ? <h2> , is Offline🔴</h2> : <h2> , is Onine🟢</h2>}
         </div>
+        </ul>
+        
       </div>
     </div>
   );

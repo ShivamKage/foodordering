@@ -14,7 +14,7 @@ const Cart = () => {
       <div className="flex">
         <h1 className="text-3xl">Cart Items</h1>
         <button
-          className="bg-cyan-300 ml-2 p-2 hover:bg-sky-400"
+            className="ml-2 px-3 border border-gray-100 rounded shadow-md hover:bg-gray-100"
           onClick={() => emptyCart()}
         >
           Clear

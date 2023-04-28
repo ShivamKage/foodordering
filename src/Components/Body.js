@@ -35,63 +35,66 @@ const Body = () => {
       <Shimmer />
     </>
   ) : (
-    <>
-      <div className="bg-pink-100 p-2 m-2">
-        <input
-          type="text"
-          placeholder="Search"
-          value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        ></input>
-        <button
-          className="bg-cyan-300 ml-2 hover:bg-sky-400"
-          onClick={() => {
-            const data = filterData(allResturants, searchText);
-            setFilteredResturants(data);
-          }}
-        >
-          Search
-        </button>
-        <input
-          className="ml-3"
-          placeholder="Name"
-          onChange={(e) => setUserName(e.target.value)}
-        ></input>
-        <button
-          className="bg-cyan-300 ml-2 hover:bg-sky-400"
-          onClick={() => setUser({ ...user, name: userName })}
-        >
-          Update Name
-        </button>
-        <input
-          className="ml-3"
-          placeholder="Email"
-          onChange={(e) => setUserEmail(e.target.value)}
-        ></input>
-        <button
-          className="bg-cyan-300 ml-2 hover:bg-sky-400"
-          onClick={() => setUser({ ...user, email: userEmail })}
-        >
-          Update Email
-        </button>
+    <div className="bg-gray-50">
+      <div className="ml-32">
+        <div className="py-2 ml-6">
+          <input
+            className="border border-black"
+            type="text"
+            placeholder="Search"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          ></input>
+          <button
+            className="ml-2 border border-gray-500 rounded shadow hover:bg-gray-100"
+            onClick={() => {
+              const data = filterData(allResturants, searchText);
+              setFilteredResturants(data);
+            }}
+          >
+            Search
+          </button>
+          <input
+            className="ml-3 border border-black"
+            placeholder="Name"
+            onChange={(e) => setUserName(e.target.value)}
+          ></input>
+          <button
+            className="ml-2 border border-gray-500 rounded shadow hover:bg-gray-100"
+            onClick={() => setUser({ ...user, name: userName })}
+          >
+            Update Name
+          </button>
+          <input
+            className="ml-3 border border-black"
+            placeholder="Email"
+            onChange={(e) => setUserEmail(e.target.value)}
+          ></input>
+          <button
+            className="ml-2 border border-gray-500 rounded shadow hover:bg-gray-100"
+            onClick={() => setUser({ ...user, email: userEmail })}
+          >
+            Update Email
+          </button>
+        </div>
+        <div className="flex flex-wrap">
+          {!filteredResturants.length === 0 ? (
+            <h1>No Resturant Found !!!!!</h1>
+          ) : (
+            filteredResturants.map((resturantList) => (
+              <Link
+                to={"/resturant/" + resturantList.data.id}
+                key={resturantList.data.id}
+              >
+                <ResturantCard {...resturantList.data} />
+              </Link>
+            ))
+          )}
+        </div>
       </div>
-      <div className="flex flex-wrap">
-        {!filteredResturants.length === 0 ? (
-          <h1>No Resturant Found !!!!!</h1>
-        ) : (
-          filteredResturants.map((resturantList) => (
-            <Link
-              to={"/resturant/" + resturantList.data.id}
-              key={resturantList.data.id}
-            >
-              <ResturantCard {...resturantList.data} />
-            </Link>
-          ))
-        )}
-      </div>
-    </>
+    </div>
   );
 };
 
